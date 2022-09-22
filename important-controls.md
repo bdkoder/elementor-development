@@ -304,3 +304,46 @@ $this->add_responsive_control(
 $this->end_popover();
 
 ```
+### Social Icons with default and recommended
+
+```php
+$this->add_control(
+    'social_icon',
+    [
+        'label'       => esc_html__('Icon', 'elementor-addons'),
+        'type'        => Controls_Manager::ICONS,
+        'label_block' => false,
+        'default'     => [
+            'value'   => 'fab fa-wordpress',
+            'library' => 'fa-brands',
+        ],
+        'skin'                   => 'inline',
+        'exclude_inline_options' => ['svg'],
+        'recommended'            => [
+            'fa-brands' => [
+                'android',
+                'apple',
+                'behance',
+                'bitbucket',
+                'codepen',
+                'delicious',
+            ],
+        ],
+    ]
+);
+```
+### Thumbnail with Exclude Size
+
+```php
+$this->add_group_control(
+    Group_Control_Image_Size:: get_type(),
+    [
+        'name'      => 'thumbnail',
+        'default'   => 'medium_large',
+        'separator' => 'before',
+        'exclude'   => [
+            'custom'
+        ]
+    ]
+);
+```
