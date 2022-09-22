@@ -347,3 +347,17 @@ $this->add_group_control(
     ]
 );
 ```
+### Exclude Image from Background Control
+
+```php
+$this->add_group_control(
+    Group_Control_Background::get_type(),
+    [
+        'name' => 'bg_color',
+        'label' => esc_html__('Background', 'elementor-addons'),
+        'types' => ['classic', 'gradient'],
+        'exclude' => ['image'],
+        'selector' => '{{WRAPPER}} .item{{CURRENT_ITEM}}'
+    ]
+);
+```
