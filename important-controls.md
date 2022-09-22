@@ -183,3 +183,124 @@ $this->add_group_control(
     ]
 );
 ```
+
+### Choose with selectors_dictionary
+
+```php
+$this->add_responsive_control(
+    '_position',
+    [
+        'label'       => esc_html__('Position', 'elementor-addons'),
+        'description' => esc_html__('description', 'elementor-addons'),
+        'type'        => Controls_Manager::CHOOSE,
+        'label_block' => false,
+        'options'     => [
+            'left' => [
+                'title' => esc_html__('Left', 'elementor-addons'),
+                'icon'  => 'eicon-h-align-left',
+            ],
+            'top' => [
+                'title' => esc_html__('Top', 'elementor-addons'),
+                'icon'  => 'eicon-v-align-top',
+            ],
+            'right' => [
+                'title' => esc_html__('Right', 'elementor-addons'),
+                'icon'  => 'eicon-h-align-right',
+            ],
+        ],
+        'toggle'          => false,
+        'desktop_default' => 'top',
+        'tablet_default'  => 'top',
+        'mobile_default'  => 'top',
+        'prefix_class'    => 'class-name-%s-',
+        'style_transfer'  => true,
+        'selectors'       => [
+            '{{WRAPPER}} .elementor-widget-container' => '{{VALUE}};',
+        ],
+        'selectors_dictionary' => [
+            'left'  => 'flex-direction: row; text-align: left;',
+            'top'   => 'flex-direction: column; text-align: left;',
+            'right' => 'row-reverse; flex-direction: row-reverse; text-align: right;'
+        ]
+    ]
+);
+
+```
+### Responsive Width
+
+```php
+$this->add_responsive_control(
+    'width',
+    [
+        'label'           => esc_html__('Width', 'elementor-addons'),
+        'type'            => Controls_Manager::SLIDER,
+        'size_units'      => ['%', 'px'],
+        'desktop_default' => [
+            'unit' => '%'
+        ],
+        'tablet_default' => [
+            'unit' => '%',
+            'size' => 100
+        ],
+        'mobile_default' => [
+            'unit' => '%',
+            'size' => 100
+        ],
+        'range' => [
+            '%' => [
+                'min' => 1,
+                'max' => 100,
+            ],
+            'px' => [
+                'min' => 50,
+                'max' => 1000,
+            ],
+        ],
+        'selectors' => [
+            '{{WRAPPER}} .class-name' => 'width: {{SIZE}}{{UNIT}};'
+        ],
+    ]
+);
+
+```
+
+### Popover Toggle
+
+```php
+$this->add_control(
+    'offset_toggle',
+    [
+        'label'        => esc_html__('Offset', 'elementor-addons'),
+        'type'         => Controls_Manager::POPOVER_TOGGLE,
+        'label_off'    => esc_html__('None', 'elementor-addons'),
+        'label_on'     => esc_html__('Custom', 'elementor-addons'),
+        'return_value' => 'yes',
+    ]
+);
+
+$this->start_popover();
+
+$this->add_responsive_control(
+    'image_offset_y',
+    [
+        'label'      => esc_html__('Offset Top', 'elementor-addons'),
+        'type'       => Controls_Manager::SLIDER,
+        'size_units' => ['px'],
+        'condition'  => [
+            'offset_toggle' => 'yes'
+        ],
+        'range' => [
+            'px' => [
+                'min' => -1000,
+                'max' => 1000,
+            ],
+        ],
+        'selectors' => [
+            '{{WRAPPER}} .class-name' => 'margin-top: {{SIZE}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->end_popover();
+
+```
