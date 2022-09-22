@@ -149,3 +149,26 @@ $this->add_responsive_control(
     ]
 );
 ```
+### Customize background control
+
+```php
+$this->add_group_control(
+    Group_Control_Background::get_type(),
+    [
+        'name' => 'main_background',
+        'label' => esc_html__('Background', 'elementor'),
+        'types' => ['classic', 'gradient'],
+        'exclude' => ['image'],
+        'fields_options' => [
+            'background' => [
+                'label' => esc_html__('New Label Here...', 'elementor'),
+                'default' => 'classic',
+            ],
+            'color' => [
+                'default' => '#fff',
+            ],
+        ],
+        'selector' => '{{WRAPPER}} .class-name',
+    ]
+);
+```
