@@ -82,6 +82,12 @@ $this->add_responsive_control(
     ]
 );
 
+```
+
+### Dimensions (Padding/Margin) Controls
+
+```php
+
 $this->add_responsive_control(
     'item_padding',
     [
@@ -101,6 +107,11 @@ $this->add_responsive_control(
         ],
     ]
 );
+
+```
+### Border & Border Radius Controls
+
+```php
 
 $this->add_group_control(
     Group_Control_Border::get_type(),
