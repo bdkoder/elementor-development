@@ -41,7 +41,56 @@ $this->add_responsive_control(
         ],
     ]
 );
+```
+### Column & Row Gap
 
+```php
+$this->add_responsive_control(
+            'row_gap',
+            [
+                'label'      => esc_html__('Row Gap', 'sky-elementor-addons'),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range'      => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                    ]
+                ],
+                // 'default' => [
+                //     'unit' => 'px',
+                //     'size' => 20,
+                // ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-generic-grid' => 'grid-row-gap: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'column_gap',
+            [
+                'label'      => esc_html__('Column Gap', 'sky-elementor-addons'),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em'],
+                'range'      => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                    ]
+                ],
+                // 'default' => [
+                //     'unit' => 'px',
+                //     'size' => 20,
+                // ],
+                'selectors' => [
+                    '{{WRAPPER}} .sa-generic-grid' => 'grid-column-gap: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+```
+
+```php
 $this->add_responsive_control(
     'img_width',
     [
