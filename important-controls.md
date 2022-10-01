@@ -41,6 +41,35 @@ $this->add_responsive_control(
         ],
     ]
 );
+
+
+$this->add_responsive_control(
+    'column',
+    [
+        'label'           => esc_html__('Column', 'elementor-addons'),
+        'type'            => Controls_Manager::SELECT,
+        'options'         => [
+            '1' => esc_html__('1 Column', 'elementor-addons'),
+            '2' => esc_html__('2 Column', 'elementor-addons'),
+            '3' => esc_html__('3 Column', 'elementor-addons'),
+            '4' => esc_html__('4 Column', 'elementor-addons'),
+            '5' => esc_html__('5 Column', 'elementor-addons'),
+            '6' => esc_html__('6 Column', 'elementor-addons'),
+        ],
+        'desktop_default' => '4',
+        'tablet_default'  => '3',
+        'mobile_default'  => '1',
+        'selectors'       => [
+            '(desktop){{WRAPPER}} .container' => 'flex-basis: calc(100% / {{VALUE}});',
+            '(tablet){{WRAPPER}} .container' => 'flex-basis: calc(100% / {{column_tablet.VALUE}});',
+            '(mobile){{WRAPPER}} .container' => 'flex-basis: calc(100% / {{column_mobile.VALUE}});',
+        ],
+        'render_type'     => 'template',
+        'style_transfer'  => true,
+    ]
+);
+
+
 ```
 ### Column & Row Gap
 
@@ -273,6 +302,7 @@ $this->add_responsive_control(
         ]
     ]
 );
+
 
 ```
 ### Responsive Width
