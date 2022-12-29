@@ -440,3 +440,16 @@ $this->add_group_control(
     ]
 );
 ```
+### Exclude Opacity from Color Control
+
+```
+$this->add_control(
+        'name',
+        [
+            'label'   => __( 'Item Preloader Color', 'text-domain' ),
+            'type'    => Controls_Manager::COLOR,
+            'default' => '#adb0b5',
+            'alpha'   => false
+        ]
+    );
+ ```
