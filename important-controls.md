@@ -442,7 +442,7 @@ $this->add_group_control(
 ```
 ### Exclude Opacity from Color Control
 
-```
+```php
 $this->add_control(
         'name',
         [
@@ -456,7 +456,7 @@ $this->add_control(
  
  ### Image Size
  
- ```
+ ```php
  $this->add_group_control(
     Group_Control_Image_Size::get_type(),
     array(
