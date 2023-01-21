@@ -457,9 +457,9 @@ $this->add_control(
  ### Image Size
  
  ```php
- $this->add_group_control(
-    Group_Control_Image_Size::get_type(),
-    array(
+$this->add_group_control(
+    Group_Control_Image_Size:: get_type(),
+    [
         'label'          => esc_html__('Image Size', 'text-domain'),
         'name'           => 'primary_thumbnail',
         'exclude'        => array('custom'),
@@ -469,6 +469,6 @@ $this->add_control(
             ],
         ],
         'default' => 'full',
-    )
+    ]
 );
 ```
