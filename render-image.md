@@ -1,3 +1,5 @@
+### Post Render
+
 ```php
 function render_image($image_id, $size) {
     $placeholder_image_src = Utils::get_placeholder_image_src();
